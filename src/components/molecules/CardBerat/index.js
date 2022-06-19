@@ -1,22 +1,18 @@
 import * as React from 'react';
-import {StyleSheet, View, Text} from 'react-native';
-import {FloatingLabelInput} from 'react-native-floating-label-input';
+import {StyleSheet, View, Text, TextInput} from 'react-native';
+import {colors, fonts} from '../../../utils';
 
-const CardBerat = ({title, label}) => {
+const CardBerat = ({title}) => {
   return (
     <View style={[styles.cardWrapper, styles.elevation]}>
       <Text style={styles.heading}>{title}</Text>
-      <FloatingLabelInput
-        // style={[
-        //   styles.containerStyles,
-        //   styles.customLabelStyles,
-        //   styles.inputStyles,
-        //   styles.labelStyles,
-        // ]}
-        style={styles.float}
-        label={label}
-        keyboardType="numeric"
-      />
+      <View style={styles.inputWrapper}>
+        <TextInput
+          placeholder="Masukkan berat paket!"
+          style={styles.inputStyle}
+        />
+        <Text style={styles.inputLabel}>Gram</Text>
+      </View>
     </View>
   );
 };
@@ -25,42 +21,28 @@ export default CardBerat;
 
 const styles = StyleSheet.create({
   cardWrapper: {
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
     borderRadius: 4,
-    padding: 24,
-    width: '100%',
-    marginVertical: 10,
+    padding: 18,
+    marginBottom: 12,
   },
   elevation: {
-    shadowColor: 'black',
+    shadowColor: colors.secondary,
     elevation: 20,
   },
   heading: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontFamily: fonts.primary[600],
+    fontSize: 16,
     marginBottom: 8,
-    color: 'black',
+    color: colors.text.primary,
   },
-  containerStyles: {
-    borderWidth: 2,
-    paddingHorizontal: 10,
-    backgroundColor: '#fff',
-    borderColor: 'red',
-    borderRadius: 8,
+  inputWrapper: {flexDirection: 'row', alignItems: 'center'},
+  inputStyle: {
+    // borderWidth: 1,
+    borderColor: 'grey',
+    borderBottomWidth: 1,
+    padding: 12,
+    // borderRadius: 8,
   },
-  customLabelStyles: {
-    colorFocused: 'red',
-    fontSizeFocused: 12,
-  },
-  labelStyles: {
-    backgroundColor: '#fff',
-    paddingHorizontal: 5,
-  },
-  inputStyles: {
-    color: 'black',
-    paddingHorizontal: 8,
-  },
-  float: {
-    borderColor: 'red',
-  },
+  inputLabel: {flex: 1, marginLeft: 12},
 });

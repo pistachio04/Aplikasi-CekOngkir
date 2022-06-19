@@ -1,20 +1,21 @@
-import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
+import React from 'react';
+import {Button, Gap} from '../../atoms';
 import {colors, fonts} from '../../../utils';
-import HeaderWithIcon from './HeaderWithIcon';
 
-const Header = ({title, type, onPress}) => {
-  if (type === 'header-icon') {
-    return <HeaderWithIcon type={type} title={title} onPress={onPress} />;
-  }
+const HeaderWithIcon = ({title, onPress}) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>{title}</Text>
+    <View>
+      <View style={styles.container}>
+        <Button type="icon-only" icon="back" onPress={onPress} />
+        <Text style={styles.title}>{title}</Text>
+        <Gap width={24} />
+      </View>
     </View>
   );
 };
 
-export default Header;
+export default HeaderWithIcon;
 
 const styles = StyleSheet.create({
   container: {
@@ -23,9 +24,10 @@ const styles = StyleSheet.create({
     height: 64,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 12,
+    paddingHorizontal: 20,
   },
   title: {
+    flex: 1,
     textAlign: 'center',
     fontFamily: fonts.primary[700],
     color: colors.white,

@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, View, Text} from 'react-native';
 import {Picker} from '@react-native-picker/picker';
+import {colors, fonts} from '../../../utils';
 
 const CardEkspedisi = ({title}) => {
   return (
@@ -19,26 +20,24 @@ export default CardEkspedisi;
 
 const styles = StyleSheet.create({
   cardWrapper: {
-    backgroundColor: 'white',
+    backgroundColor: colors.white,
     borderRadius: 4,
-    padding: 24,
-    width: '100%',
-    marginVertical: 10,
+    padding: 16,
+    marginBottom: 8,
   },
   elevation: {
-    shadowColor: 'black',
+    shadowColor: colors.secondary,
     elevation: 20,
   },
   heading: {
-    fontSize: 18,
-    fontWeight: '600',
+    fontFamily: fonts.primary[600],
+    fontSize: 16,
     marginBottom: 8,
-    color: 'black',
+    color: colors.text.primary,
   },
   pickerStyle: {
     height: 50,
-    width: '100%',
-    color: 'black',
+    color: colors.secondary,
     justifyContent: 'center',
   },
 });

@@ -1,12 +1,16 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {colors} from '../../../utils';
+import {colors, fonts} from '../../../utils';
+import IconOnly from './IconOnly';
 
-const Button = () => {
+const Button = ({onPress, label, type, icon}) => {
+  if (type === 'icon-only') {
+    return <IconOnly icon={icon} onPress={onPress} />;
+  }
   return (
-    <View style={styles.wrapperButton}>
-      <Text style={styles.label}>Cek Ongkir</Text>
-    </View>
+    <TouchableOpacity style={styles.wrapperButton} onPress={onPress}>
+      <Text style={styles.label}>{label}</Text>
+    </TouchableOpacity>
   );
 };
 
@@ -22,7 +26,7 @@ const styles = StyleSheet.create({
   },
   label: {
     color: colors.white,
-    fontWeight: '700',
-    fontSize: 20,
+    fontFamily: fonts.primary[600],
+    fontSize: 18,
   },
 });
